@@ -54,7 +54,7 @@
 
 /* Festive Cursive Font for Main Title */
 .pdp-main-title.festive-cursive {
-    font-family: 'Great Vibes', 'Dancing Script', cursive;
+    font-family: 'FuturaRound-Medium', 'FuturaRound-Regular', 'Futura', sans-serif;
     font-weight: 400;
     font-size: 2.8rem;
     line-height: 1.2;
@@ -64,7 +64,7 @@
     background-clip: text;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     letter-spacing: 1px;
-    transform: rotate(-1deg);
+    transform: rotate(0deg);
     animation: festive-glow 3s ease-in-out infinite alternate;
 }
 
@@ -698,7 +698,7 @@
     
     .pdp-main-title.festive-cursive {
         font-size: 2.2rem;
-        transform: rotate(-0.5deg);
+        transform: rotate(0deg);
     }
     
     .ingredients-grid {
