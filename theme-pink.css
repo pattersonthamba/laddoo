@@ -1,0 +1,160 @@
+/* Pink Theme - Coral/Pink Color Palette */
+:root {
+    /* Pink Color Palette */
+    --primary-color: #F78282;
+    --secondary-color: #FFA4A4;
+    --accent-color: #FFEBDA;
+    --background-color: #FDF0E6;
+    --text-color: #5A3017;
+    --light-text: #8B7355;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #F78282, #FFA4A4);
+    --gradient-secondary: linear-gradient(135deg, #FFA4A4, #FFEBDA);
+    --gradient-bg: linear-gradient(135deg, #FDF0E6, #FFEBDA);
+}
+
+/* Process Step Cards - Pink Theme */
+.process-step {
+    background: rgba(247, 130, 130, 0.1) !important;
+    border: 2px solid rgba(247, 130, 130, 0.2) !important;
+}
+
+/* Top Banner */
+.top-banner {
+    background: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+    background: var(--gradient-bg);
+}
+
+.hero-title {
+    color: var(--text-color);
+}
+
+.product-title {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Laddoo Showcase */
+.laddoo {
+    background: var(--gradient-primary);
+    box-shadow: 0 10px 30px rgba(247, 130, 130, 0.3);
+}
+
+.sparkle {
+    background: var(--secondary-color);
+}
+
+/* Diya Decorations */
+.diya {
+    background: var(--gradient-primary);
+}
+
+/* Product Info Section */
+.product-info {
+    background: var(--background-color);
+}
+
+.nutrition-table {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+.nutrition-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(247, 130, 130, 0.1);
+}
+
+.nutrient {
+    font-family: 'CabinetGrotesk-Medium', 'Inter', sans-serif;
+    color: var(--text-color);
+}
+
+.value {
+    font-family: 'CabinetGrotesk-Bold', 'Inter', sans-serif;
+    color: var(--primary-color);
+}
+
+/* Ingredients */
+.ingredient-list {
+    list-style: none;
+    background: var(--white);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+.ingredient-list li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(247, 130, 130, 0.1);
+    font-family: 'CabinetGrotesk-Medium', 'Inter', sans-serif;
+    color: var(--text-color);
+}
+
+/* Instructions */
+.instructions {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.instructions .section-title {
+    color: var(--white);
+}
+
+.instruction-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.step {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: var(--white);
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-family: 'CabinetGrotesk-Bold', 'Inter', sans-serif;
+    margin: 0 auto 1.5rem;
+}
+
+.step-content h3 {
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.step-content p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Footer */
+.footer {
+    background: var(--text-color);
+    color: var(--white);
+}
+
+.footer-text {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}

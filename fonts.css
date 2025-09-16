@@ -1,0 +1,149 @@
+/* Font Face Declarations for Dramaturg and Futura Round */
+
+/* Dramaturg Font Family */
+@font-face {
+    font-family: 'Dramaturg';
+    src: url('./Dramaturg Font/Dramaturg.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DramaturgA';
+    src: url('./Dramaturg Font/DramaturgA.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DramaturgB';
+    src: url('./Dramaturg Font/DramaturgB.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DramaturgSC';
+    src: url('./Dramaturg Font/DramaturgSC.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Futura Round Font Family */
+@font-face {
+    font-family: 'FuturaRound-Light';
+    src: url('./futura_round_font/fonnts.com-futuraround-light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FuturaRound-LightOblique';
+    src: url('./futura_round_font/fonnts.com-futuraround-lightoblique.otf') format('opentype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FuturaRound-Regular';
+    src: url('./futura_round_font/fonnts.com-futuraround-regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FuturaRound-RegularOblique';
+    src: url('./futura_round_font/fonnts.com-futuraround-regularoblique.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FuturaRound-Medium';
+    src: url('./futura_round_font/fonnts.com-futuraround-medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FuturaRound-MediumOblique';
+    src: url('./futura_round_font/fonnts.com-futuraround-mediumoblique.otf') format('opentype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FuturaRound-Demi';
+    src: url('./futura_round_font/fonnts.com-futuraround-demi.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FuturaRound-DemiOblique';
+    src: url('./futura_round_font/fonnts.com-futuraround-demioblique.otf') format('opentype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FuturaRound-Bold';
+    src: url('./futura_round_font/fonnts.com-futuraround-bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FuturaRound-BoldOblique';
+    src: url('./futura_round_font/fonnts.com-futuraround-boldoblique.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Futura Round Condensed */
+@font-face {
+    font-family: 'FuturaRoundCond-Light';
+    src: url('./futura_round_font/fonnts.com-futuraroundcond-light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FuturaRoundCond-Medium';
+    src: url('./futura_round_font/fonnts.com-futuraroundcond-medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FuturaRoundCond-Bold';
+    src: url('./futura_round_font/fonnts.com-futuraroundcond-bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FuturaRoundCond-ExtraBold';
+    src: url('./futura_round_font/fonnts.com-futuraroundcond-extrabold.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Origin - Theme Showcase</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .showcase-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .showcase-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .showcase-title {
+            font-size: 3rem;
+            font-family: 'CabinetGrotesk-Black', 'Inter', sans-serif;
+            color: #5A3017;
+            margin-bottom: 1rem;
+        }
+        
+        .showcase-subtitle {
+            font-size: 1.2rem;
+            color: #8B7355;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .themes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .theme-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .theme-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .theme-preview {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .theme-orange-preview {
+            background: linear-gradient(135deg, #F39D52, #FFD07A);
+        }
+        
+        .theme-pink-preview {
+            background: linear-gradient(135deg, #F78282, #FFA4A4);
+        }
+        
+        .theme-green-preview {
+            background: linear-gradient(135deg, #ABD17F, #CDE6B0);
+        }
+        
+        .theme-mixed-preview {
+            background: linear-gradient(135deg, #F39D52, #F78282, #ABD17F);
+        }
+        
+        .theme-dark-preview {
+            background: linear-gradient(135deg, #5A3017, #2C1810);
+        }
+        
+        .theme-preview::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.6; }
+        }
+        
+        .theme-info {
+            padding: 1.5rem;
+        }
+        
+        .theme-name {
+            font-size: 1.5rem;
+            font-family: 'CabinetGrotesk-Bold', 'Inter', sans-serif;
+            color: #5A3017;
+            margin-bottom: 0.5rem;
+        }
+        
+        .theme-description {
+            color: #8B7355;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .theme-colors {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .color-swatch {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .theme-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, #F39D52, #FFD07A);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-family: 'CabinetGrotesk-Medium', 'Inter', sans-serif;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+        
+        .theme-button:hover {
+            transform: translateY(-2px);
+        }
+        
+
+        .color-palette-section {
+            background: #FEF5E6;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+        
+        .color-palette-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .color-group {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .color-group-title {
+            font-family: 'CabinetGrotesk-Bold', 'Inter', sans-serif;
+            color: #5A3017;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .color-row {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .color-item {
+            flex: 1;
+            height: 40px;
+            border-radius: 8px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .color-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .color-item::after {
+            content: attr(data-color);
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            color: #8B7355;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="showcase-container">
+        <div class="showcase-header">
+            <h1 class="showcase-title">Origin Theme Showcase</h1>
+            <p class="showcase-subtitle">Explore different color variations of the Origin High Protein Laddoos website, each using the brand color palette from the packaging design.</p>
+        </div>
+        
+        <div class="themes-grid">
+            <div class="theme-card" onclick="window.open('theme-orange.html', '_blank')">
+                <div class="theme-preview theme-orange-preview"></div>
+                <div class="theme-info">
+                    <h3 class="theme-name">Orange Theme</h3>
+                    <p class="theme-description">Classic warm orange palette inspired by the original packaging design. Perfect for festive celebrations.</p>
+                    <div class="theme-colors">
+                        <div class="color-swatch" style="background: #F39D52;"></div>
+                        <div class="color-swatch" style="background: #FFD07A;"></div>
+                        <div class="color-swatch" style="background: #FFF1DA;"></div>
+                        <div class="color-swatch" style="background: #FEF5E6;"></div>
+                    </div>
+                    <a href="theme-orange.html" class="theme-button" target="_blank">View Theme</a>
+                </div>
+            </div>
+            
+            <div class="theme-card" onclick="window.open('theme-pink.html', '_blank')">
+                <div class="theme-preview theme-pink-preview"></div>
+                <div class="theme-info">
+                    <h3 class="theme-name">Pink Theme</h3>
+                    <p class="theme-description">Soft coral and pink tones for a more delicate, feminine appeal while maintaining the festive spirit.</p>
+                    <div class="theme-colors">
+                        <div class="color-swatch" style="background: #F78282;"></div>
+                        <div class="color-swatch" style="background: #FFA4A4;"></div>
+                        <div class="color-swatch" style="background: #FFEBDA;"></div>
+                        <div class="color-swatch" style="background: #FDF0E6;"></div>
+                    </div>
+                    <a href="theme-pink.html" class="theme-button" target="_blank">View Theme</a>
+                </div>
+            </div>
+            
+            <div class="theme-card" onclick="window.open('theme-green.html', '_blank')">
+                <div class="theme-preview theme-green-preview"></div>
+                <div class="theme-info">
+                    <h3 class="theme-name">Green Theme</h3>
+                    <p class="theme-description">Natural muted green palette emphasizing the plant-based, healthy nature of the product.</p>
+                    <div class="theme-colors">
+                        <div class="color-swatch" style="background: #ABD17F;"></div>
+                        <div class="color-swatch" style="background: #CDE6B0;"></div>
+                        <div class="color-swatch" style="background: #DFEED1;"></div>
+                        <div class="color-swatch" style="background: #E6F2DA;"></div>
+                    </div>
+                    <a href="theme-green.html" class="theme-button" target="_blank">View Theme</a>
+                </div>
+            </div>
+            
+            <div class="theme-card" onclick="window.open('theme-mixed.html', '_blank')">
+                <div class="theme-preview theme-mixed-preview"></div>
+                <div class="theme-info">
+                    <h3 class="theme-name">Mixed Theme</h3>
+                    <p class="theme-description">Combines all three color families for a vibrant, multi-colored celebration of the brand palette.</p>
+                    <div class="theme-colors">
+                        <div class="color-swatch" style="background: #F39D52;"></div>
+                        <div class="color-swatch" style="background: #F78282;"></div>
+                        <div class="color-swatch" style="background: #ABD17F;"></div>
+                        <div class="color-swatch" style="background: #FFD07A;"></div>
+                    </div>
+                    <a href="theme-mixed.html" class="theme-button" target="_blank">View Theme</a>
+                </div>
+            </div>
+            
+            <div class="theme-card" onclick="window.open('theme-dark.html', '_blank')">
+                <div class="theme-preview theme-dark-preview"></div>
+                <div class="theme-info">
+                    <h3 class="theme-name">Dark Theme</h3>
+                    <p class="theme-description">Dark brown base with bright orange accents for a premium, sophisticated look.</p>
+                    <div class="theme-colors">
+                        <div class="color-swatch" style="background: #5A3017;"></div>
+                        <div class="color-swatch" style="background: #2C1810;"></div>
+                        <div class="color-swatch" style="background: #F39D52;"></div>
+                        <div class="color-swatch" style="background: #FFD07A;"></div>
+                    </div>
+                    <a href="theme-dark.html" class="theme-button" target="_blank">View Theme</a>
+                </div>
+            </div>
+            
+        </div>
+        
+        
+        <div class="color-palette-section">
+            <div class="container">
+                <h2 style="text-align: center; font-family: 'CabinetGrotesk-Bold', 'Inter', sans-serif; color: #5A3017; margin-bottom: 1rem;">Brand Color Palette</h2>
+                <p style="text-align: center; color: #8B7355; margin-bottom: 2rem;">Complete color system extracted from the Origin packaging design</p>
+                
+                <div class="color-palette-grid">
+                    <div class="color-group">
+                        <h3 class="color-group-title">Orange Family</h3>
+                        <div class="color-row">
+                            <div class="color-item" style="background: #F39D52;" data-color="#F39D52"></div>
+                            <div class="color-item" style="background: #FFD07A;" data-color="#FFD07A"></div>
+                        </div>
+                        <div class="color-row">
+                            <div class="color-item" style="background: #FFF1DA;" data-color="#FFF1DA"></div>
+                            <div class="color-item" style="background: #FEF5E6;" data-color="#FEF5E6"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="color-group">
+                        <h3 class="color-group-title">Pink Family</h3>
+                        <div class="color-row">
+                            <div class="color-item" style="background: #F78282;" data-color="#F78282"></div>
+                            <div class="color-item" style="background: #FFA4A4;" data-color="#FFA4A4"></div>
+                        </div>
+                        <div class="color-row">
+                            <div class="color-item" style="background: #FFEBDA;" data-color="#FFEBDA"></div>
+                            <div class="color-item" style="background: #FDF0E6;" data-color="#FDF0E6"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="color-group">
+                        <h3 class="color-group-title">Green Family</h3>
+                        <div class="color-row">
+                            <div class="color-item" style="background: #ABD17F;" data-color="#ABD17F"></div>
+                            <div class="color-item" style="background: #CDE6B0;" data-color="#CDE6B0"></div>
+                        </div>
+                        <div class="color-row">
+                            <div class="color-item" style="background: #DFEED1;" data-color="#DFEED1"></div>
+                            <div class="color-item" style="background: #E6F2DA;" data-color="#E6F2DA"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="color-group">
+                        <h3 class="color-group-title">Base Colors</h3>
+                        <div class="color-row">
+                            <div class="color-item" style="background: #5A3017;" data-color="#5A3017"></div>
+                            <div class="color-item" style="background: #2C1810;" data-color="#2C1810"></div>
+                        </div>
+                        <div class="color-row">
+                            <div class="color-item" style="background: #8B7355;" data-color="#8B7355"></div>
+                            <div class="color-item" style="background: #FFFFFF;" data-color="#FFFFFF"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

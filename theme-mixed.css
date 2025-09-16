@@ -1,0 +1,222 @@
+/* Mixed Theme - Combining Orange, Pink, and Green */
+:root {
+    /* Mixed Color Palette */
+    --primary-orange: #F39D52;
+    --primary-pink: #F78282;
+    --primary-green: #ABD17F;
+    --secondary-orange: #FFD07A;
+    --secondary-pink: #FFA4A4;
+    --secondary-green: #CDE6B0;
+    --accent-orange: #FFF1DA;
+    --accent-pink: #FFEBDA;
+    --accent-green: #DFEED1;
+    --background-color: #FEF5E6;
+    --text-color: #5A3017;
+    --light-text: #8B7355;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #F39D52, #F78282, #ABD17F);
+    --gradient-secondary: linear-gradient(135deg, #FFD07A, #FFA4A4, #CDE6B0);
+    --gradient-bg: linear-gradient(135deg, #FEF5E6, #FFEBDA, #DFEED1);
+}
+
+/* Process Step Cards - Mixed Theme */
+.process-step {
+    background: rgba(243, 157, 82, 0.1) !important;
+    border: 2px solid rgba(243, 157, 82, 0.2) !important;
+}
+
+/* Top Banner */
+.top-banner {
+    background: var(--gradient-primary);
+}
+
+/* Hero Section */
+.hero {
+    background: var(--gradient-bg);
+}
+
+.hero-title {
+    color: var(--text-color);
+}
+
+.product-title {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Laddoo Showcase - Different colors for each laddoo */
+.laddoo-1 {
+    background: linear-gradient(135deg, #F39D52, #FFD07A);
+    box-shadow: 0 10px 30px rgba(243, 157, 82, 0.3);
+}
+
+.laddoo-2 {
+    background: linear-gradient(135deg, #F78282, #FFA4A4);
+    box-shadow: 0 10px 30px rgba(247, 130, 130, 0.3);
+}
+
+.laddoo-3 {
+    background: linear-gradient(135deg, #ABD17F, #CDE6B0);
+    box-shadow: 0 10px 30px rgba(171, 209, 127, 0.3);
+}
+
+.sparkle-1 {
+    background: var(--primary-orange);
+}
+
+.sparkle-2 {
+    background: var(--primary-pink);
+}
+
+.sparkle-3 {
+    background: var(--primary-green);
+}
+
+/* Diya Decorations - Different colors */
+.diya-1 {
+    background: linear-gradient(135deg, #F39D52, #FFD07A);
+}
+
+.diya-2 {
+    background: linear-gradient(135deg, #F78282, #FFA4A4);
+}
+
+.diya-3 {
+    background: linear-gradient(135deg, #ABD17F, #CDE6B0);
+}
+
+/* Product Info Section */
+.product-info {
+    background: var(--background-color);
+}
+
+.nutrition-table {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px var(--shadow);
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    background-image: linear-gradient(white, white), var(--gradient-primary);
+    background-origin: border-box;
+}
+
+.nutrition-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(95, 48, 23, 0.1);
+}
+
+.nutrient {
+    font-family: 'CabinetGrotesk-Medium', 'Inter', sans-serif;
+    color: var(--text-color);
+}
+
+.value {
+    font-family: 'CabinetGrotesk-Bold', 'Inter', sans-serif;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Ingredients */
+.ingredient-list {
+    list-style: none;
+    background: var(--white);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px var(--shadow);
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    background-image: linear-gradient(white, white), var(--gradient-secondary);
+    background-origin: border-box;
+}
+
+.ingredient-list li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(95, 48, 23, 0.1);
+    font-family: 'CabinetGrotesk-Medium', 'Inter', sans-serif;
+    color: var(--text-color);
+}
+
+/* Instructions */
+.instructions {
+    background: var(--gradient-primary);
+    color: var(--white);
+}
+
+.instructions .section-title {
+    color: var(--white);
+}
+
+.instruction-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.step {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.step:nth-child(1) .step-number {
+    background: var(--primary-orange);
+    color: var(--white);
+}
+
+.step:nth-child(2) .step-number {
+    background: var(--primary-pink);
+    color: var(--white);
+}
+
+.step:nth-child(3) .step-number {
+    background: var(--primary-green);
+    color: var(--white);
+}
+
+.step:nth-child(4) .step-number {
+    background: var(--secondary-orange);
+    color: var(--white);
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-family: 'CabinetGrotesk-Bold', 'Inter', sans-serif;
+    margin: 0 auto 1.5rem;
+}
+
+.step-content h3 {
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.step-content p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Footer */
+.footer {
+    background: var(--text-color);
+    color: var(--white);
+}
+
+.footer-text {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
