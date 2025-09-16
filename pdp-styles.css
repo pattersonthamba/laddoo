@@ -12,22 +12,31 @@
 /* PDP Header Section */
 .pdp-header {
     background: var(--gradient-bg);
-    padding: 4rem 0;
-    min-height: 80vh;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
 }
 
+/* Override container padding for hero section */
+.pdp-header .container {
+    padding: 0;
+    max-width: 100%;
+    margin: 0;
+    width: 100%;
+}
+
 .pdp-hero {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
     align-items: center;
+    justify-content: center;
     position: relative;
     z-index: 2;
 }
@@ -97,6 +106,89 @@
     justify-content: center;
     align-items: center;
 }
+
+/* Hero Image Slider Styles */
+.hero-image-slider {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slider-slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slider-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-slide.active {
+    opacity: 1;
+}
+
+.slider-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Mobile: Use contain to prevent cutting */
+@media (max-width: 768px) {
+    .slider-image {
+        object-fit: contain;
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    .slider-slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Removed overlay to eliminate orange bars */
+
+/* Hero content positioned below slider */
+.pdp-hero-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(242, 101, 33, 0.1), rgba(255, 140, 66, 0.1));
+    position: relative;
+    z-index: 2;
+}
+
+/* Background slider - no navigation needed */
 
 /* Laddoo Showcase Animation */
 .laddoo-showcase {
@@ -192,6 +284,64 @@
     text-align: center;
 }
 
+/* Festivals Gallery */
+.festivals-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.festival-image-container {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(242, 101, 33, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.festival-image-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(242, 101, 33, 0.3);
+}
+
+.festival-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 2rem 1.5rem 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.festival-image-container:hover .image-overlay {
+    transform: translateY(0);
+}
+
+.image-overlay h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.image-overlay p {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
 .festivals-content {
     max-width: 800px;
     margin: 0 auto;
@@ -208,13 +358,123 @@
 .whats-inside {
     background: var(--gradient-bg);
     padding: 4rem 0;
+    overflow-x: hidden;
+}
+
+/* Box Content Grid */
+.box-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: stretch;
+    margin: 3rem 0;
+}
+
+/* Box Images */
+.box-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(242, 101, 33, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(242, 101, 33, 0.3);
 }
 
 .ingredients-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr;
     gap: 2rem;
     margin: 3rem 0;
+}
+
+/* Ingredients Detail Grid */
+.ingredients-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: stretch;
+    margin: 3rem 0;
+}
+
+/* Combined Card Styles */
+.ingredient-card.combined {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 15px 40px rgba(242, 101, 33, 0.1);
+    border: 2px solid rgba(242, 101, 33, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ingredient-card.combined:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(242, 101, 33, 0.15);
+}
+
+.combined-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(242, 101, 33, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(242, 101, 33, 0.1);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    background: rgba(242, 101, 33, 0.08);
+    transform: translateY(-2px);
+}
+
+.feature-text h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-orange);
+    margin: 0 0 0.4rem 0;
+    line-height: 1.2;
+}
+
+.feature-text p {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.3;
+    font-weight: 400;
+}
+
+.feature-item .ingredient-icon {
+    font-size: 1.8rem;
+    min-width: 2.5rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(242, 101, 33, 0.1);
+    border-radius: 8px;
+    padding: 0.5rem;
 }
 
 .ingredient-card {
@@ -250,61 +510,107 @@
     background: var(--white);
     padding: 2rem;
     border-radius: 20px;
-    margin-top: 2rem;
     box-shadow: 0 10px 30px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 300px;
+    overflow: hidden;
 }
 
 .ingredients-detail h3 {
-    color: var(--text-color);
+    color: var(--primary-orange);
+    font-size: 1.8rem;
+    font-weight: 600;
     margin-bottom: 1.5rem;
-    text-align: center;
+    text-align: left;
 }
 
 .ingredients-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+    height: 100%;
+    align-content: center;
 }
 
 .ingredient-item {
     display: flex;
     align-items: center;
-    padding: 1rem;
-    background: var(--light-orange);
-    border-radius: 10px;
-    gap: 1rem;
+    gap: 0.8rem;
+    padding: 0.8rem;
+    background: rgba(242, 101, 33, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(242, 101, 33, 0.1);
+    transition: all 0.3s ease;
+    min-height: 0;
+}
+
+.ingredient-item:hover {
+    background: rgba(242, 101, 33, 0.08);
+    transform: translateY(-2px);
+}
+
+.ingredient-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
 }
 
 .ingredient-icon {
     font-size: 1.5rem;
-    width: 2.5rem;
-    height: 2.5rem;
+    min-width: 2rem;
+    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--white);
-    border-radius: 50%;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: rgba(242, 101, 33, 0.1);
+    border-radius: 8px;
+    padding: 0.4rem;
     flex-shrink: 0;
 }
 
 .ingredient-name {
     font-weight: 600;
     color: var(--text-color);
-    flex: 1;
+    font-size: 0.9rem;
+    line-height: 1.2;
 }
 
 .ingredient-desc {
-    font-size: 0.9rem;
-    color: var(--light-text);
-    text-align: right;
-    flex: 1;
+    font-size: 0.75rem;
+    color: #666;
+    line-height: 1.3;
+    margin: 0;
 }
 
 /* How to Make Section */
 .how-to-make {
     background: var(--white);
     padding: 4rem 0;
+}
+
+/* How to Make Image */
+.how-to-make-image-container {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0;
+}
+
+.how-to-make-image {
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(242, 101, 33, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.how-to-make-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(242, 101, 33, 0.3);
 }
 
 .steps-container {
@@ -472,6 +778,60 @@
 .bundling-offers {
     background: var(--white);
     padding: 4rem 0;
+}
+
+.bundling-showcase {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin: 3rem 0;
+}
+
+.bundling-image-container {
+    flex: 1;
+    max-width: 400px;
+}
+
+.bundling-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+.bundling-icons {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.bundling-icon-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--light-bg);
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.bundling-icon-item:hover {
+    transform: translateY(-3px);
+    background: var(--gradient-bg);
+}
+
+.bundling-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.bundling-icon-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-color);
 }
 
 .pack-options {
@@ -656,7 +1016,40 @@
 
 @media (max-width: 1200px) {
     .ingredients-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .box-content-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .box-image {
+        height: 250px;
+    }
+    
+    .ingredient-card.combined {
+        height: 250px;
+    }
+    
+    .combined-content {
         grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+    }
+    
+    .ingredient-card.combined {
+        padding: 2rem;
+    }
+    
+    .ingredients-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .ingredients-detail {
+        height: auto;
+        min-height: 250px;
+        overflow: hidden;
     }
     
     .ingredients-list {
@@ -665,12 +1058,42 @@
     
     .usps-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .usp-card {
+        padding: 1.8rem 1.5rem;
+    }
+    
+    .usp-icon {
+        font-size: 2.8rem;
     }
     
     .steps-container {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         max-width: 100%;
-        gap: 0.6rem;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .step-card {
+        min-width: auto;
+        width: 100%;
+    }
+    
+    .bundling-showcase {
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+    
+    .bundling-image {
+        height: 250px;
+    }
+    
+    .bundling-icons {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
     
     .pack-options {
@@ -686,10 +1109,56 @@
 }
 
 @media (max-width: 768px) {
-    .pdp-hero {
+    .hero-image-slider {
+        height: 60vh;
+    }
+    
+    .slider-container {
+        height: 100%;
+    }
+    
+    .slider-slides {
+        height: 100%;
+    }
+    
+    .pdp-hero-content {
+        padding: 2rem 1rem;
+    }
+    
+    /* Festivals Gallery Mobile */
+    .festivals-gallery {
         grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2rem;
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+    
+    .festival-image {
+        height: 300px;
+    }
+    
+    .image-overlay {
+        padding: 1.5rem 1rem 1rem;
+    }
+    
+    .image-overlay h3 {
+        font-size: 1.3rem;
+    }
+    
+    .image-overlay p {
+        font-size: 0.9rem;
+    }
+    
+    /* Box Images Mobile */
+    .box-image-container {
+        margin: 2rem 0;
+        padding: 0 1.5rem;
+    }
+    
+    .box-image {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
     }
     
     .pdp-main-title {
@@ -705,23 +1174,158 @@
         grid-template-columns: 1fr;
     }
     
+    .box-content-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .box-image {
+        height: 200px;
+    }
+    
+    .ingredient-card.combined {
+        height: auto;
+        min-height: 200px;
+    }
+    
+    .combined-content {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .feature-item {
+        padding: 0.8rem;
+    }
+    
+    .feature-item .ingredient-icon {
+        font-size: 1.5rem;
+        min-width: 2rem;
+        padding: 0.4rem;
+    }
+    
+    .ingredient-card.combined {
+        padding: 1.5rem;
+    }
+    
+    .feature-item {
+        gap: 0.8rem;
+    }
+    
+    .feature-text h4 {
+        font-size: 1rem;
+    }
+    
+    .feature-text p {
+        font-size: 0.9rem;
+    }
+    
+    .ingredients-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .ingredients-detail {
+        height: auto;
+        min-height: 200px;
+        overflow: hidden;
+    }
+    
     .ingredients-list {
         grid-template-columns: 1fr;
     }
     
-    .steps-container {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.4rem;
+    .how-to-make-image-container {
+        margin: 2rem 0;
+    }
+    
+    .how-to-make-image {
+        height: 250px;
         max-width: 100%;
+    }
+    
+    .how-to-make-image-container {
+        margin: 1.5rem 0;
+    }
+    
+    .how-to-make-image {
+        height: 200px;
+        max-width: 100%;
+    }
+    
+    .steps-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+    
+    .step-card {
+        min-width: auto;
+        width: 100%;
+        padding: 1.5rem 1rem;
+        min-height: 160px;
     }
     
     .usps-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .usp-card {
+        padding: 1.5rem 1rem;
+        min-height: 160px;
+    }
+    
+    .usp-icon {
+        font-size: 2.5rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .usp-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .usp-card p {
+        font-size: 0.85rem;
     }
     
     .corporate-content {
         max-width: 100%;
         padding: 0 1rem;
+    }
+    
+    .bundling-showcase {
+        flex-direction: column;
+        gap: 1.5rem;
+        margin: 1.5rem 0;
+    }
+    
+    .bundling-image-container {
+        max-width: 100%;
+    }
+    
+    .bundling-image {
+        height: 200px;
+    }
+    
+    .bundling-icons {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .bundling-icon-item {
+        padding: 0.8rem;
+    }
+    
+    .bundling-icon {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .bundling-icon-text {
+        font-size: 0.8rem;
     }
     
     .pack-options {
@@ -761,6 +1365,50 @@
     .btn {
         width: 100%;
         max-width: 200px;
+    }
+    
+    .hero-image-slider {
+        height: 50vh;
+    }
+    
+    .pdp-hero-content {
+        padding: 1.5rem 0.5rem;
+    }
+    
+    /* Festivals Gallery Small Mobile */
+    .festivals-gallery {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .festival-image {
+        height: 250px;
+    }
+    
+    .image-overlay {
+        padding: 1rem 0.8rem 0.8rem;
+    }
+    
+    .image-overlay h3 {
+        font-size: 1.2rem;
+    }
+    
+    .image-overlay p {
+        font-size: 0.8rem;
+    }
+    
+    /* Box Images Small Mobile */
+    .box-image-container {
+        margin: 1.5rem 0;
+        padding: 0 1rem;
+    }
+    
+    .box-image {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
     }
     
     .laddoo-showcase {

@@ -1,17 +1,19 @@
-// Mobile Navigation Toggle
+// Mobile Navigation Toggle (only if elements exist)
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
 
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-}));
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    }));
+}
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -27,15 +29,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar background change on scroll
+// Navbar background change on scroll (only if navbar exists)
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
+    if (navbar) {
+        if (window.scrollY > 100) {
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.boxShadow = 'none';
+        }
     }
 });
 
@@ -65,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Form submission handling
+// Form submission handling (only if contact form exists)
 const contactForm = document.querySelector('.contact-form form');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
@@ -73,9 +77,9 @@ if (contactForm) {
         
         // Get form data
         const formData = new FormData(contactForm);
-        const name = contactForm.querySelector('input[type="text"]').value;
-        const email = contactForm.querySelector('input[type="email"]').value;
-        const message = contactForm.querySelector('textarea').value;
+        const name = contactForm.querySelector('input[type="text"]')?.value;
+        const email = contactForm.querySelector('input[type="email"]')?.value;
+        const message = contactForm.querySelector('textarea')?.value;
         
         // Simple validation
         if (!name || !email || !message) {
@@ -335,7 +339,7 @@ function typeWriter(element, text, speed = 100) {
     type();
 }
 
-// Initialize typing effect when page loads
+// Initialize typing effect when page loads (only if hero title exists)
 document.addEventListener('DOMContentLoaded', () => {
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
@@ -345,4 +349,87 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     }
 });
+
+// Simple Image Slider
+let currentSlideIndex = 0;
+let slideInterval = null;
+
+function initImageSlider() {
+    console.log('Initializing image slider...');
+    
+    const slides = document.querySelectorAll('.slider-slide');
+    console.log('Number of slides found:', slides.length);
+    
+    if (slides.length === 0) {
+        console.error('No slides found!');
+        return;
+    }
+    
+    // Check if images are loading
+    slides.forEach((slide, index) => {
+        const img = slide.querySelector('img');
+        if (img) {
+            console.log(`Slide ${index} image src:`, img.src);
+            img.onload = () => console.log(`Slide ${index} image loaded successfully`);
+            img.onerror = () => console.error(`Slide ${index} image failed to load:`, img.src);
+        }
+    });
+    
+    // Show first slide
+    showSlide(0);
+    
+    // Start auto-sliding
+    startAutoSlide();
+    
+    console.log('Image slider initialized with', slides.length, 'slides');
+}
+
+function showSlide(index) {
+    const slides = document.querySelectorAll('.slider-slide');
+    console.log('Showing slide:', index);
+    
+    // Remove active class from all slides
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+    });
+    
+    // Add active class to current slide
+    if (slides[index]) {
+        slides[index].classList.add('active');
+        currentSlideIndex = index;
+    }
+}
+
+function nextSlide() {
+    const slides = document.querySelectorAll('.slider-slide');
+    const nextIndex = (currentSlideIndex + 1) % slides.length;
+    console.log('Moving to next slide:', nextIndex);
+    showSlide(nextIndex);
+}
+
+function startAutoSlide() {
+    console.log('Starting auto-slide');
+    slideInterval = setInterval(() => {
+        nextSlide();
+    }, 4000); // 4 seconds
+}
+
+function stopAutoSlide() {
+    if (slideInterval) {
+        console.log('Stopping auto-slide');
+        clearInterval(slideInterval);
+        slideInterval = null;
+    }
+}
+
+// Initialize image slider when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM loaded, initializing image slider...');
+    
+    // Wait a bit for everything to load
+    setTimeout(() => {
+        initImageSlider();
+    }, 100);
+});
+
 
