@@ -2,7 +2,7 @@
 // Compatible with Chrome, Firefox, Edge, Safari, and IE11+
 
 class DiwaliFireworks {
-    constructor(container) {
+    constructor(container, customConfig = {}) {
         this.container = container;
         this.canvas = null;
         this.ctx = null;
@@ -11,13 +11,15 @@ class DiwaliFireworks {
         this.animationId = null;
         this.isRunning = false;
         
-        // Configuration
-        this.config = {
+        // Default Configuration
+        const defaultConfig = {
             fireworkCount: 3,
             particleCount: 50,
             gravity: 0.1,
             friction: 0.99,
             speed: 2,
+            autoCreate: true,
+            clickToCreate: true,
             colors: [
                 '#f26521', // Primary Orange
                 '#ff8c42', // Secondary Orange
@@ -29,6 +31,9 @@ class DiwaliFireworks {
                 '#FFF1DA'  // Cream
             ]
         };
+        
+        // Merge custom config with default config
+        this.config = { ...defaultConfig, ...customConfig };
         
         this.init();
     }
@@ -64,18 +69,43 @@ class DiwaliFireworks {
     bindEvents() {
         window.addEventListener('resize', () => this.resize());
         
-        // Start fireworks on click
-        this.container.addEventListener('click', (e) => {
-            this.createFirework(e.clientX - this.container.getBoundingClientRect().left, e.clientY - this.container.getBoundingClientRect().top);
-        });
+        // Start fireworks on click (if enabled)
+        if (this.config.clickToCreate) {
+            this.container.addEventListener('click', (e) => {
+                this.createFirework(e.clientX - this.container.getBoundingClientRect().left, e.clientY - this.container.getBoundingClientRect().top);
+            });
+        }
     }
     
     createFirework(x, y) {
+        // For split-screen layout, adjust target positions to avoid content areas
+        let targetX, targetY;
+        
+        if (x && y) {
+            // User clicked - use click position
+            targetX = x;
+            targetY = y;
+        } else {
+            // Auto-generated - avoid center content area for split-screen
+            if (this.container.classList.contains('hero-split-screen')) {
+                // For split-screen, create fireworks in the image areas
+                const isLeftSide = Math.random() < 0.5;
+                targetX = isLeftSide ? 
+                    Math.random() * this.canvas.width * 0.3 : 
+                    Math.random() * this.canvas.width * 0.3 + this.canvas.width * 0.7;
+                targetY = Math.random() * this.canvas.height * 0.4 + this.canvas.height * 0.1;
+            } else {
+                // Default behavior for other layouts
+                targetX = Math.random() * this.canvas.width;
+                targetY = Math.random() * this.canvas.height * 0.5;
+            }
+        }
+        
         const firework = {
             x: x || Math.random() * this.canvas.width,
             y: this.canvas.height,
-            targetX: x || Math.random() * this.canvas.width,
-            targetY: y || Math.random() * this.canvas.height * 0.5,
+            targetX: targetX,
+            targetY: targetY,
             speed: this.config.speed,
             color: this.config.colors[Math.floor(Math.random() * this.config.colors.length)],
             trail: [],
@@ -200,8 +230,8 @@ class DiwaliFireworks {
         this.updateParticles();
         this.draw();
         
-        // Auto-create fireworks
-        if (Math.random() < 0.02 && this.fireworks.length < this.config.fireworkCount) {
+        // Auto-create fireworks (if enabled)
+        if (this.config.autoCreate && Math.random() < 0.02 && this.fireworks.length < this.config.fireworkCount) {
             this.createFirework();
         }
         
@@ -239,10 +269,29 @@ document.addEventListener('DOMContentLoaded', function() {
     
     heroSections.forEach(hero => {
         if (hero.querySelector('.hero-decoration')) {
-            const fireworks = new DiwaliFireworks(hero);
-            
-            // Store reference for cleanup if needed
-            hero._fireworks = fireworks;
+            // Special configuration for hero-split-screen
+            if (hero.classList.contains('hero-split-screen')) {
+                const fireworks = new DiwaliFireworks(hero, {
+                    fireworkCount: 2, // Reduced for split-screen layout
+                    particleCount: 40, // Slightly reduced
+                    autoCreate: true, // Enable auto-creation
+                    clickToCreate: true, // Enable click to create
+                    colors: [
+                        '#f26521', // Primary Orange
+                        '#ff8c42', // Secondary Orange
+                        '#FFD700', // Gold
+                        '#FF6B35', // Orange Red
+                        '#ffe4d6', // Light Orange
+                        '#F39D52', // Original Orange
+                        '#FFD07A', // Golden
+                        '#FFF1DA'  // Cream
+                    ]
+                });
+                hero._fireworks = fireworks;
+            } else {
+                const fireworks = new DiwaliFireworks(hero);
+                hero._fireworks = fireworks;
+            }
         }
     });
     

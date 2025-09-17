@@ -12,8 +12,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 <body>
+    <main class="main-content">
     <!-- Top Banner -->
     <div class="top-banner">
         <div class="container">
@@ -26,34 +30,27 @@
     </div>
 
     <!-- Block 1: Split Screen Hero Section -->
-    <section class="hero-split-screen">
+    <section class="hero-split-screen hero">
+        <div class="hero-decoration"></div>
         <div class="split-grid">
-            <!-- Top Left - DSC00164.JPG -->
-            <div class="split-image-container top-left">
-                <img src="images/slider/DSC00164.JPG" alt="Laddoo celebration" class="split-image">
-            </div>
-            
-            <!-- Top Right - DSC00049.JPG -->
-            <div class="split-image-container top-right">
+            <!-- Top Image - DSC00049.JPG -->
+            <div class="split-image-container top-image">
                 <img src="images/slider/DSC00049.JPG" alt="Laddoo making process" class="split-image">
             </div>
             
-            <!-- Bottom Left - DSC00085.JPG -->
-            <div class="split-image-container bottom-left">
-                <img src="images/slider/DSC00085.JPG" alt="Laddoo ingredients" class="split-image">
-            </div>
-            
-            <!-- Bottom Right - Hero Content -->
-            <div class="split-content-container bottom-right">
-                <div class="pdp-logo">
-                    <img src="Protein font and logo/Protein font and logo/Origin Logo_Brown.png" alt="Origin Logo" class="pdp-logo-img">
-                </div>
+            <!-- Middle - Hero Content -->
+            <div class="split-content-container middle-content">
                 <h1 class="pdp-main-title festive-cursive">The sweetest moments are the ones we make together</h1>
                 <p class="pdp-subtitle">Wholesome protein rich DIY laddoo kit that turns tradition into a healthier celebration</p>
                 <button class="btn btn-primary pdp-cta">
                     Order Now
                     <span class="btn-arrow">→</span>
                 </button>
+            </div>
+            
+            <!-- Bottom Image - DSC00085.JPG -->
+            <div class="split-image-container bottom-image">
+                <img src="images/slider/DSC00085.JPG" alt="Laddoo ingredients" class="split-image">
             </div>
         </div>
         
@@ -70,6 +67,31 @@
                     <div class="product__info-container">
                         <div class="product__title">
                             <h1>Laddoo It Yourself Kit</h1>
+                        </div>
+
+                        <!-- Product Image Gallery Slider -->
+                        <div class="product-gallery-slider">
+                            <div class="swiper product-swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="gallery-image-container">
+                                            <img src="images/sections/DSC00013.JPG" alt="Laddoo DIY Kit Contents" class="gallery-image">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="gallery-image-container">
+                                            <img src="images/sections/Laddoo box opened.png" alt="Laddoo Box Opened" class="gallery-image">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Navigation arrows -->
+                                <div class="swiper-button-next gallery-nav-next"></div>
+                                <div class="swiper-button-prev gallery-nav-prev"></div>
+                                
+                                <!-- Pagination dots -->
+                                <div class="swiper-pagination gallery-pagination"></div>
+                            </div>
                         </div>
 
                         <div style="padding: 0px 0px; text-align: left; font-weight: normal;">
@@ -90,7 +112,7 @@
                                     <svg class="prapp-star" style="width: 12px; height: 12px;" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="510px" height="510px" viewBox="0 0 510 510" xml:space="preserve">
                                         <path fill="#E79C5E" d="M510,197.472l-183.37-15.734L255,12.75l-71.629,168.988L0,197.472l0,0l0,0l139.103,120.539L97.41,497.25L255,402.186l0,0l157.59,95.039l-41.692-179.239L510,197.472z M255,354.348V117.172l43.605,102.918l111.689,9.588l-84.711,73.389l25.398,109.166L255,354.348z"></path>
                                     </svg>
-                                    <span style="color: #000 ; font-size: 12px; display: inline-block; margin-left: 5px; vertical-align: text-bottom;">(4.8)</span>
+                                    <span style="color: #5A3017 ; font-size: 12px; display: inline-block; margin-left: 5px; vertical-align: text-bottom;">(4.8)</span>
                                 </div>
                             </a>
                         </div>
@@ -319,31 +341,32 @@
         </div>
     </section>
 
-    <!-- Block 2: What's in the Box Banner -->
-    <!--
-    <section class="whats-box-banner">
-        <div class="banner-image-container">
-            <img src="images/sections/Laddoo box closed.png" alt="What's in the box" class="banner-image">
-            <div class="banner-overlay">
-                <div class="banner-content">
-                    <h2 class="banner-title">What's Inside the Box</h2>
-                    <p class="banner-description">Pre measured premium ingredients for perfect laddoos every time</p>
-                    <div class="ingredient-highlights">
-                        <div class="highlight-item">
-                            <span class="highlight-icon">🌴</span>
-                            <span>Dates</span>
+    <section class="whats-inside-section">
+        <div class="container">
+            <div class="whats-inside-wrapper">
+                <div class="whats-inside-image">
+                    <img src="images/sections/Laddoo box opened.png" alt="What's inside the opened laddoo box" class="box-image">
+                </div>
+                <div class="whats-inside-content">
+                    <h2 class="section-title">What's Inside the Box</h2>
+                    <div class="ingredients-list">
+                        <div class="ingredient-item">
+                            <h3>Dates</h3>
                         </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">🥜</span>
-                            <span>Cashews</span>
+                        <div class="ingredient-item">
+                            <h3>Cashews</h3>
                         </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">🌱</span>
-                            <span>Chia Seeds</span>
+                        <div class="ingredient-item">
+                            <h3>Chia Seeds</h3>
                         </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">💪</span>
-                            <span>Plant Protein</span>
+                        <div class="ingredient-item">
+                            <h3>Pumpkin Seeds</h3>
+                        </div>
+                        <div class="ingredient-item">
+                            <h3>Almonds</h3>
+                        </div>
+                        <div class="ingredient-item">
+                            <h3>Plant Protein</h3>
                         </div>
                     </div>
                 </div>
@@ -351,8 +374,6 @@
         </div>
     </section>
 
-    <!-- Block 3: How to Make Banner -->
-    <!--
     <section class="how-make-banner">
         <div class="banner-image-container">
             <img src="images/sections/DSC00131.JPG" alt="How to make laddoos" class="banner-image">
@@ -381,8 +402,6 @@
         </div>
     </section>
 
-    <!-- Block 4: Video Brand Film -->
-    <!--
     <section class="video-brand-film">
         <div class="container">
             <div class="video-content">
@@ -393,37 +412,16 @@
                         <p>Watch our brand film to see the complete laddoo making experience</p>
                     </div>
                 </div>
-                <div class="video-features">
-                    <div class="video-feature">
-                        <span class="feature-icon">🎬</span>
-                        <span>Brand Story</span>
-                    </div>
-                    <div class="video-feature">
-                        <span class="feature-icon">👨‍👩‍👧‍👦</span>
-                        <span>Family Moments</span>
-                    </div>
-                    <div class="video-feature">
-                        <span class="feature-icon">🍡</span>
-                        <span>Making Process</span>
-                    </div>
-                    <div class="video-feature">
-                        <span class="feature-icon">✨</span>
-                        <span>Final Result</span>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Block 5: Bundling and Bulk Offers Banner -->
-    <!--
     <section class="bundling-bulk-banner">
         <div class="banner-image-container">
             <img src="images/sections/DSC00013.JPG" alt="Bundling and bulk offers" class="banner-image">
             <div class="banner-overlay">
                 <div class="banner-content">
                     <h2 class="banner-title">Pick Your Pack</h2>
-                    <p class="banner-description">Choose the perfect pack for your celebration</p>
                     <div class="pack-options-banner">
                         <div class="pack-option">
                             <div class="pack-name">Friends Pack</div>
@@ -442,16 +440,20 @@
                             <div class="pack-price">₹2,199</div>
                         </div>
                     </div>
-                    <div class="bulk-offers">
-                        <h3>Bulk Orders Available</h3>
-                        <p>Special pricing for corporate events and celebrations</p>
-                        <button class="btn btn-secondary">Contact for Bulk Orders</button>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
-    -->
+    
+    <!-- Bulk Orders Section -->
+    <section class="bulk-offers">
+        <div class="container">
+            <h3>Bulk Orders Available</h3>
+            <p>Special pricing for corporate events and celebrations</p>
+            <button class="btn btn-secondary">Contact for Bulk Orders</button>
+        </div>
+    </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -465,9 +467,9 @@
                 <div class="footer-links">
                     <div class="footer-section">
                         <h4>Contact</h4>
-                        <p>P plus 91 8190842 22500</p>
-                        <p>E hello at originnutrition dot in</p>
-                        <p>W www dot originnutrition dot in</p>
+                        <p>+ 91 8190842 22500</p>
+                        <p>originnutrition@gmail.com</p>
+                        <p>www.originnutrition.in</p>
                     </div>
                 </div>
             </div>
@@ -479,5 +481,61 @@
 
     <script src="script-replica.js"></script>
     <script src="fireworks.js"></script>
+    
+    <!-- Swiper.js JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Initialize Product Gallery Slider -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Swiper for product gallery
+            const productSwiper = new Swiper('.product-swiper', {
+                // Optional parameters
+                direction: 'horizontal',
+                loop: true,
+                
+                // Navigation arrows
+                navigation: {
+                    nextEl: '.gallery-nav-next',
+                    prevEl: '.gallery-nav-prev',
+                },
+                
+                // Pagination
+                pagination: {
+                    el: '.gallery-pagination',
+                    clickable: true,
+                    dynamicBullets: true,
+                },
+                
+                // Responsive breakpoints
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    },
+                    768: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                    },
+                    1024: {
+                        slidesPerView: 1,
+                        spaceBetween: 30,
+                    },
+                },
+                
+                // Effects
+                effect: 'slide',
+                speed: 600,
+                
+                // Accessibility
+                a11y: {
+                    prevSlideMessage: 'Previous image',
+                    nextSlideMessage: 'Next image',
+                    firstSlideMessage: 'This is the first image',
+                    lastSlideMessage: 'This is the last image',
+                },
+            });
+        });
+    </script>
 </body>
 </html>
