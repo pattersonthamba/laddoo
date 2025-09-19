@@ -308,6 +308,28 @@ document.addEventListener('DOMContentLoaded', function() {
         const showcaseFireworks = new DiwaliFireworks(themeShowcase);
         themeShowcase._fireworks = showcaseFireworks;
     }
+    
+    // Initialize fireworks for "What's Inside" section
+    const whatsInsideSection = document.querySelector('.whats-inside-section');
+    if (whatsInsideSection) {
+        const whatsInsideFireworks = new DiwaliFireworks(whatsInsideSection, {
+            fireworkCount: 3,
+            particleCount: 60,
+            autoCreate: true,
+            clickToCreate: true,
+            colors: [
+                '#FFD700', // Gold
+                '#FFA500', // Orange
+                '#FF8C00', // Dark Orange
+                '#FF6347', // Tomato
+                '#FFD07A', // Golden
+                '#FFF1DA', // Cream
+                '#F4A460', // Sandy Brown
+                '#DEB887'  // Burlywood
+            ]
+        });
+        whatsInsideSection._fireworks = whatsInsideFireworks;
+    }
 });
 
 // Export for module usage
